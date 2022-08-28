@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // 28a2d1
 // 009cd8
@@ -9,8 +10,8 @@ export default function Login() {
 
   return (
     <div className="bg-stone-200 min-h-screen flex items-center justify-center">
-      <form className="bg-white px-32 py-12 rounded-2xl shadow-lg">
-        <h1 className="text-6xl mb-10">Sign In</h1>
+      <form className="bg-white px-32 py-16 rounded-2xl shadow-lg">
+        <h1 className="text-6xl mb-8 text-center">Sign In</h1>
         <fieldset className="left-text">
           <input
             type="email"
@@ -33,10 +34,17 @@ export default function Login() {
         </fieldset>
         <button
           type="button"
-          className="bg-green-400 p-3 w-full mt-4 rounded-lg shadow"
+          className="bg-green-400 p-3 w-full my-4 rounded-lg shadow"
         >
           Sign In
         </button>
+        <div className="border border-stone-400 p-10">
+          <p>
+            New to Wall App?
+            {' '}
+            <Link to="/register" className="text-blue-600 underline">Create a Account</Link>
+          </p>
+        </div>
       </form>
     </div>
   );
