@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import Router from './Router';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Wall</h1>
+      <Router />
     </div>
   );
 }
