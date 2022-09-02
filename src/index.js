@@ -5,12 +5,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './context/AuthProvider';
+import WallProvider from './context/WallProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <AuthProvider>
-      <App />
+      <WallProvider>
+        <App />
+      </WallProvider>
     </AuthProvider>
   </BrowserRouter>,
 );

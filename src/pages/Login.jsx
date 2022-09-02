@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from '../components/Loading';
 import { AuthContext } from '../context/AuthProvider';
 
 // 28a2d1
@@ -15,12 +16,12 @@ export default function Login() {
     handleLogin(email, password);
   };
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <Loading />;
 
   return (
     <div className="bg-stone-200 min-h-screen flex items-center justify-center">
       <form onSubmit={handleSubmit} className="bg-white px-16 py-8 rounded-2xl shadow-lg">
-        <h1 className="text-6xl mb-8 text-center">Sign In</h1>
+        <h1 className="text-6xl mb-8 text-center">Wall App</h1>
         <fieldset className="left-text">
           <label htmlFor="email">
             <input
@@ -29,6 +30,7 @@ export default function Login() {
               id="email"
               placeholder="Login"
               value={email}
+              data-testid="login-email"
               onChange={({ target }) => setEmail(target.value)}
               className="w-full block bg-black rounded p-2 mb-4 text-white"
             />
@@ -40,6 +42,7 @@ export default function Login() {
               id="password"
               placeholder="Password"
               value={password}
+              data-testid="login-password"
               onChange={({ target }) => setPassword(target.value)}
               className="w-full block bg-black rounded p-2 text-white"
             />
@@ -47,6 +50,7 @@ export default function Login() {
         </fieldset>
         <button
           type="submit"
+          data-testid="login-submit"
           className="bg-green-500 hover:bg-green-400 p-3 w-full my-4 rounded-lg shadow"
         >
           Sign In
