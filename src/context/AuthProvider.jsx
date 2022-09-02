@@ -36,7 +36,7 @@ export default function AuthProvider({ children }) {
     }
   };
 
-  const contextValue = useMemo(() => ({ handleLogin }), [user]);
+  const contextValue = useMemo(() => ({ handleLogin, loading }), [loading]);
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );

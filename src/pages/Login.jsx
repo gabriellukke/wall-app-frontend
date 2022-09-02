@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthProvider';
 // 009cd8
 
 export default function Login() {
-  const { handleLogin } = useContext(AuthContext);
+  const { handleLogin, loading } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,6 +14,8 @@ export default function Login() {
     e.preventDefault();
     handleLogin(email, password);
   };
+
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <div className="bg-stone-200 min-h-screen flex items-center justify-center">
@@ -56,7 +58,9 @@ export default function Login() {
             <Link to="/register" className="text-blue-600 underline">Create an Account</Link>
           </p>
           <p>
-            or enter as a guest
+            or
+            {' '}
+            <Link to="/wall" className="text-blue-600 underline">enter as a guest</Link>
           </p>
         </div>
       </form>
