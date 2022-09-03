@@ -4,7 +4,6 @@ import { WallContext } from '../context/WallProvider';
 
 export default function Wall() {
   const { posts, loading } = useContext(WallContext);
-  console.log('🚀 ~ file: Wall.jsx ~ line 6 ~ Wall ~ posts', posts)
 
   if (loading) return <Loading />;
 

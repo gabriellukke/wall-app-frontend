@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { AuthContext } from '../context/AuthProvider';
@@ -9,10 +9,16 @@ export default function Register() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const isPasswordConfirmed = password === confirmPassword || 'Passwords do not match';
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegister(firstName, lastName, email, password);
+    if (typeof isPasswordConfirmed === 'string') {
+      return alert(isPasswordConfirmed);
+    }
+    return handleRegister(firstName, lastName, email, password);
   };
 
   if (loading) return <Loading />;
@@ -81,6 +87,18 @@ export default function Register() {
               value={password}
               data-testid="register-password"
               onChange={({ target }) => setPassword(target.value)}
+              className="w-full block bg-black rounded p-2 mb-4 text-white"
+            />
+          </label>
+          <label htmlFor="confirmPassword">
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              data-testid="register-password"
+              onChange={({ target }) => setConfirmPassword(target.value)}
               className="w-full block bg-black rounded p-2 text-white"
             />
           </label>
