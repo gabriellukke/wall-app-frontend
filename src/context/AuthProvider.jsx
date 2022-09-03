@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { login } from '../services/api';
+import { login, register } from '../services/api';
 
 export const AuthContext = createContext(null);
 
@@ -16,6 +16,7 @@ export default function AuthProvider({ children }) {
     const storageToken = localStorage.getItem('token');
     return storageToken || '';
   });
+  const [registerMessage, setRegisterMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -36,7 +37,21 @@ export default function AuthProvider({ children }) {
     }
   };
 
-  const contextValue = useMemo(() => ({ handleLogin, loading }), [loading]);
+  const handleRegister = async (firstName, lastName, email, password) => {
+    setLoading(true);
+    try {
+      const { data } = await register(firstName, lastName, email, password);
+      setRegisterMessage(data.message);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const contextValue = useMemo(() => ({
+    handleLogin, handleRegister, registerMessage, loading,
+  }), [loading, registerMessage]);
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
