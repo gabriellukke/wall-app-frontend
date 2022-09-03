@@ -11,14 +11,28 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const isPasswordConfirmed = password === confirmPassword || 'Passwords do not match';
+  const fieldsVerification = useMemo(() => {
+    const passwordMinLength = 8;
+    const emailRegex = /\S+@\S+\.\S+/;
+    const emailValid = emailRegex.test(email);
+    const passwordValid = password.length > passwordMinLength;
+    const passwordMatch = password === confirmPassword;
+    return {
+      emailValid,
+      passwordValid,
+      passwordMatch,
+    };
+  }, [email, password, confirmPassword]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (typeof isPasswordConfirmed === 'string') {
-      return alert(isPasswordConfirmed);
+    const verifySubmit = fieldsVerification.emailValid
+      && fieldsVerification.passwordValid
+      && fieldsVerification.passwordMatch;
+    if (verifySubmit) {
+      return handleRegister(firstName, lastName, email, password);
     }
-    return handleRegister(firstName, lastName, email, password);
+    return null;
   };
 
   if (loading) return <Loading />;
@@ -31,7 +45,9 @@ export default function Register() {
         <p>
           Go to
           {' '}
-          <Link to="/" className="text-blue-600 underline">Home page to Sign In</Link>
+          <Link to="/" className="text-blue-600 underline">
+            Home page to Sign In
+          </Link>
         </p>
       </div>
     );
@@ -39,7 +55,10 @@ export default function Register() {
 
   return (
     <div className="bg-stone-200 min-h-screen flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="bg-white px-16 py-8 rounded-2xl shadow-lg">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white px-16 py-8 rounded-2xl shadow-lg"
+      >
         <h1 className="text-6xl mb-8 text-center">Wall App</h1>
         <fieldset className="left-text">
           <label htmlFor="firstName">
@@ -114,7 +133,9 @@ export default function Register() {
           <p>
             Don`t want to sign up?
             {' '}
-            <Link to="/wall" className="text-blue-600 underline">Enter as a guest</Link>
+            <Link to="/wall" className="text-blue-600 underline">
+              Enter as a guest
+            </Link>
           </p>
         </div>
       </form>
