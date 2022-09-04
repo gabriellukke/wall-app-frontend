@@ -44,7 +44,7 @@ export default function AuthProvider({ children }) {
       const { data } = await register(firstName, lastName, email, password);
       setRegisterMessage(data.message);
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.message);
     } finally {
       setLoading(false);
     }

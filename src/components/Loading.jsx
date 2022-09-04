@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default function Loading({ type = 'bars', color = '#009cd8' }) {
   return (
-    <div className="bg-stone-200 flex items-center justify-center mt-12">
+    <div className="flex items-center justify-center mt-12">
       <ReactLoading
         type={type}
         color={color}
