@@ -1,15 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { AuthContext } from '../context/AuthProvider';
-
-// 28a2d1
-// 009cd8
 
 export default function Login() {
   const { handleLogin, loading } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const fieldsVerification = useMemo(() => {
+    const blank = !email || !password;
+    const passwordMinLength = 8;
+    const emailRegex = /\S+@\S+\.\S+/;
+    const emailValid = emailRegex.test(email);
+    const passwordValid = password.length > passwordMinLength;
+    return {
+      blank: !blank || 'Fields cannot be blank',
+      emailValid: emailValid || 'Email is not valid',
+      passwordValid: passwordValid || `Password must be at least ${passwordMinLength} characters`,
+    };
+  }, [email, password]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

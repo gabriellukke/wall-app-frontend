@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { Loading } from '../components';
 import { AuthContext } from '../context/AuthProvider';
+import verifyFields from '../utils/verifyFields';
 
 export default function Register() {
   const { handleRegister, registerMessage, loading } = useContext(AuthContext);
@@ -18,7 +19,7 @@ export default function Register() {
     const passwordMinLength = 8;
     const emailRegex = /\S+@\S+\.\S+/;
     const emailValid = emailRegex.test(email);
-    const passwordValid = password.length > passwordMinLength;
+    const passwordValid = password.length >= passwordMinLength;
     const passwordMatch = password === confirmPassword;
     return {
       blank: !blank || 'Fields cannot be blank',
@@ -30,10 +31,9 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const verficationKeys = Object.keys(fieldsVerification);
-    const [firstError] = verficationKeys.filter((key) => fieldsVerification[key] !== true);
-    if (firstError) {
-      return toast.error(fieldsVerification[firstError]);
+    const error = verifyFields(fieldsVerification);
+    if (error) {
+      return toast.error(error);
     }
     return handleRegister(firstName, lastName, email, password);
   };
