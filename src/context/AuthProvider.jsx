@@ -54,6 +54,7 @@ export default function AuthProvider({ children }) {
     localStorage.removeItem('token');
     setUser(null);
     setToken('');
+    setRegisterMessage('');
     navigate('/');
   }, [navigate]);
 
