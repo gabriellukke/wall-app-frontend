@@ -16,9 +16,9 @@ export default function PostForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-blue-200 flex-col items-center justify-center"
+      className="bg-blue-200 flex flex-col items-center justify-center h-64"
     >
-      <fieldset>
+      <fieldset className="flex flex-col w-2/5 h-2/3 justify-evenly bg-green-200">
         <label htmlFor="title">
           <input
             type="text"
@@ -33,15 +33,17 @@ export default function PostForm() {
           <textarea
             name="message"
             id="message"
-            cols="30"
-            rows="10"
-            placeholder="Message"
+            cols="50"
+            rows="3"
+            placeholder="Post"
             value={message}
             onChange={({ target }) => setMessage(target.value)}
           />
         </label>
+        <div className="flex justify-end pr-2 pb-2">
+          <button type="submit" className="bg-green-500 hover:bg-green-400 p-1 w-1/4 rounded-lg shadow">Post</button>
+        </div>
       </fieldset>
-      <button type="submit" className="bg-green-500 hover:bg-green-400 p-3 w-full my-4 rounded-lg shadow">Post</button>
     </form>
   );
 }
