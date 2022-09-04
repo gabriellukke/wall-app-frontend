@@ -1,6 +1,7 @@
 import React, {
   createContext, useCallback, useMemo, useState,
 } from 'react';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { login, register } from '../services/api';
@@ -31,7 +32,7 @@ export default function AuthProvider({ children }) {
       localStorage.setItem('token', apiToken);
       navigate('/wall');
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.message);
     } finally {
       setLoading(false);
     }

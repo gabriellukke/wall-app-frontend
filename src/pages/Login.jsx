@@ -17,7 +17,7 @@ export default function Login() {
     const passwordMinLength = 8;
     const emailRegex = /\S+@\S+\.\S+/;
     const emailValid = emailRegex.test(email);
-    const passwordValid = password.length > passwordMinLength;
+    const passwordValid = password.length >= passwordMinLength;
     return {
       blank: !blank || 'Fields cannot be blank',
       emailValid: emailValid || 'Email is not valid',
