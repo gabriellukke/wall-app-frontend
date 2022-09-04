@@ -41,7 +41,13 @@ export default function PostForm() {
           />
         </label>
         <div className="flex justify-end pr-2 pb-2">
-          <button type="submit" className="bg-green-500 hover:bg-green-400 p-1 w-1/4 rounded-lg shadow">Post</button>
+          <button
+            type="submit"
+            disabled={!title || !message}
+            className="bg-green-500 hover:bg-green-400 disabled:bg-red-400 p-1 w-1/4 rounded-lg shadow"
+          >
+            Post
+          </button>
         </div>
       </fieldset>
     </form>

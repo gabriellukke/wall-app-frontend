@@ -29,6 +29,7 @@ export default function Register() {
     const verifySubmit = fieldsVerification.emailValid
       && fieldsVerification.passwordValid
       && fieldsVerification.passwordMatch;
+    
     if (verifySubmit) {
       return handleRegister(firstName, lastName, email, password);
     }

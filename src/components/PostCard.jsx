@@ -1,7 +1,9 @@
 import React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 
 export default function PostCard({ post }) {
+  const postedAt = moment(post.createdAt).format('MMMM Do YYYY, h:mm');
   return (
     <article className="flex bg-white shadow-lg rounded-lg mx-4 px-12 my-2">
       <div className="flex items-start px-4 py-6">
@@ -12,7 +14,7 @@ export default function PostCard({ post }) {
               {' '}
               {post.user.lastName}
             </h2>
-            <small className="text-sm text-gray-700">22h ago</small>
+            <small className="text-sm text-gray-700 ml-12">{postedAt}</small>
           </div>
           <h4 className="text-gray-700">{post.title}</h4>
           <p className="mt-3 text-gray-700 text-sm">
@@ -32,5 +34,6 @@ PostCard.propTypes = {
     }).isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
   }).isRequired,
 };
