@@ -12,7 +12,6 @@ export default function AuthProvider({ children }) {
     const storageUser = localStorage.getItem('user');
     return storageUser ? JSON.parse(storageUser) : null;
   });
-  console.log('🔥 ~ file: AuthProvider.jsx ~ line 15 ~ const[user,setUser]=useState ~ user', user);
   const [token, setToken] = useState(() => {
     const storageToken = localStorage.getItem('token');
     return storageToken || '';

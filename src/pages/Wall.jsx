@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import PostForm from '../components/PostForm';
 import { WallContext } from '../context/WallProvider';
 
 export default function Wall() {
-  const { posts, loading } = useContext(WallContext);
+  const { handleFetchPosts, posts, loading } = useContext(WallContext);
+
+  useEffect(() => {
+    handleFetchPosts();
+  }, [handleFetchPosts]);
 
   if (loading) return <Loading />;
 
