@@ -1,5 +1,5 @@
 import React, {
-  createContext, useMemo, useState,
+  createContext, useCallback, useMemo, useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -49,8 +49,16 @@ export default function AuthProvider({ children }) {
     }
   };
 
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    setUser(null);
+    setToken('');
+    navigate('/');
+  }, [navigate]);
+
   const contextValue = useMemo(() => ({
-    handleLogin, handleRegister, user, token, registerMessage, loading,
+    handleLogin, handleRegister, handleLogout, user, token, registerMessage, loading,
   }), [user, loading, registerMessage]);
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

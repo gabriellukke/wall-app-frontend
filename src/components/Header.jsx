@@ -9,7 +9,7 @@ export default function Header() {
       <h1 className="text-3xl py-5 px-10">Wall</h1>
       <nav className="w-2/12 flex justify-between">
         {
-          !user ? (
+          user ? (
             <div className="flex items-center">
               <button
                 type="button"
