@@ -12,28 +12,28 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const fieldsVerification = useMemo(() => {
+    const blank = !firstName || !lastName || !email || !password || !confirmPassword;
     const passwordMinLength = 8;
     const emailRegex = /\S+@\S+\.\S+/;
     const emailValid = emailRegex.test(email);
     const passwordValid = password.length > passwordMinLength;
     const passwordMatch = password === confirmPassword;
     return {
-      emailValid,
-      passwordValid,
-      passwordMatch,
+      blank: !blank || 'Fields cannot be blank',
+      emailValid: emailValid || 'Email is not valid',
+      passwordValid: passwordValid || `Password must be at least ${passwordMinLength} characters`,
+      passwordMatch: passwordMatch || 'Passwords do not match',
     };
-  }, [email, password, confirmPassword]);
+  }, [firstName, lastName, email, password, confirmPassword]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const verifySubmit = fieldsVerification.emailValid
-      && fieldsVerification.passwordValid
-      && fieldsVerification.passwordMatch;
-    
-    if (verifySubmit) {
-      return handleRegister(firstName, lastName, email, password);
+    const verficationKeys = Object.keys(fieldsVerification);
+    const [firstError] = verficationKeys.filter((key) => fieldsVerification[key] !== true);
+    if (firstError) {
+      return alert(fieldsVerification[firstError]);
     }
-    return null;
+    return handleRegister(firstName, lastName, email, password);
   };
 
   if (loading) return <Loading />;
@@ -88,7 +88,7 @@ export default function Register() {
           </label>
           <label htmlFor="email">
             <input
-              type="email"
+              type="text"
               name="email"
               id="email"
               placeholder="Email"
