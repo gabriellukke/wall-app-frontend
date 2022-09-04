@@ -1,7 +1,11 @@
 import React, { useState, useContext, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import Loading from '../components/Loading';
 import { AuthContext } from '../context/AuthProvider';
+import verifyFields from '../utils/verifyFields';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const { handleLogin, loading } = useContext(AuthContext);
@@ -23,13 +27,18 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(email, password);
+    const error = verifyFields(fieldsVerification);
+    if (error) {
+      return toast.error(error);
+    }
+    return handleLogin(email, password);
   };
 
   if (loading) return <Loading />;
 
   return (
     <div className="bg-stone-200 min-h-screen flex items-center justify-center">
+      <ToastContainer />
       <form onSubmit={handleSubmit} className="bg-white px-16 py-8 rounded-2xl shadow-lg">
         <h1 className="text-6xl mb-8 text-center">Wall App</h1>
         <fieldset className="left-text">
