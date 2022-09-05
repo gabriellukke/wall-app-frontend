@@ -1,5 +1,5 @@
 import React, { useState, useContext, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Loading from '../components/Loading';
 import { AuthContext } from '../context/AuthProvider';
@@ -8,7 +8,7 @@ import verifyFields from '../utils/verifyFields';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
-  const { handleLogin, loading } = useContext(AuthContext);
+  const { user, handleLogin, loading } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -34,6 +34,8 @@ export default function Login() {
     return handleLogin(email, password);
   };
 
+  if (user) return <Navigate to="/wall" />;
+
   if (loading) return <Loading />;
 
   return (
@@ -44,7 +46,7 @@ export default function Login() {
         <fieldset className="left-text">
           <label htmlFor="email">
             <input
-              type="email"
+              type="text"
               name="email"
               id="email"
               placeholder="Login"
