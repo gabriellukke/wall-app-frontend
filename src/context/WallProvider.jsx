@@ -1,6 +1,7 @@
 import React, {
   createContext, useCallback, useMemo, useState,
 } from 'react';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { getWallPosts, createPost } from '../services/api';
 
@@ -16,7 +17,7 @@ export default function WallProvider({ children }) {
       const { data } = await getWallPosts();
       setPosts(data);
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }
