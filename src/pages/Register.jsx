@@ -73,7 +73,7 @@ export default function Register() {
               id="firstName"
               placeholder="First Name"
               value={firstName}
-              data-testid="register-firstName"
+              data-testid="register-first-name"
               onChange={({ target }) => setFirstName(target.value)}
               className="w-full block bg-black rounded p-2 mb-4 text-white"
             />
@@ -85,7 +85,7 @@ export default function Register() {
               id="lastName"
               placeholder="Last Name"
               value={lastName}
-              data-testid="register-lastName"
+              data-testid="register-last-name"
               onChange={({ target }) => setLastName(target.value)}
               className="w-full block bg-black rounded p-2 mb-4 text-white"
             />
@@ -121,7 +121,7 @@ export default function Register() {
               id="confirmPassword"
               placeholder="Confirm Password"
               value={confirmPassword}
-              data-testid="register-password"
+              data-testid="register-confirm-password"
               onChange={({ target }) => setConfirmPassword(target.value)}
               className="w-full block bg-black rounded p-2 text-white"
             />
@@ -129,7 +129,7 @@ export default function Register() {
         </fieldset>
         <button
           type="submit"
-          data-testid="login-submit"
+          data-testid="register-submit"
           className="bg-green-500 hover:bg-green-400 p-3 w-full my-4 rounded-lg shadow"
         >
           Sign Up
