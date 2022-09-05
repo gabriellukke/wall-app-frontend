@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthProvider';
 export default function Header() {
   const { user, handleLogout } = useContext(AuthContext);
   return (
-    <header className="bg-blue-500 min-w-full flex justify-between h-20">
+    <header className="bg-white opacity-95 min-w-full flex justify-between h-20">
       <h1 className="text-3xl py-5 px-10">Wall</h1>
       <nav className="w-2/12 flex justify-between">
         {
@@ -13,7 +13,7 @@ export default function Header() {
             <div className="flex items-center">
               <button
                 type="button"
-                className="border-black hover:bg-red-400 border-2 rounded-lg px-5 my-5"
+                className="hover:bg-red-400 bg-transparen font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
                 onClick={handleLogout}
               >
                 Logout
@@ -23,13 +23,13 @@ export default function Header() {
             <div className="flex items-center">
               <Link
                 to="/"
-                className=" border-2 border-black hover:bg-slate-400 rounded-lg px-5 mx-2"
+                className="hover:bg-eletricblue bg-transparen font-semibold hover:text-white py-2 px-4 mx-1 border border-eletricblue hover:border-transparent rounded"
               >
                 Sign in
               </Link>
               <Link
                 to="/register"
-                className=" border-2 border-black hover:bg-slate-400 rounded-lg px-5 mx-2"
+                className="hover:bg-green-600 bg-transparen font-semibold hover:text-white py-2 px-4 mx-1 border border-green-600 hover:border-transparent rounded"
               >
                 Sign up
               </Link>
