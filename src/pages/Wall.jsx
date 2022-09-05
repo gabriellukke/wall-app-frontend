@@ -5,9 +5,11 @@ import {
   PostForm,
   PostCard,
 } from '../components';
+import { AuthContext } from '../context/AuthProvider';
 import { WallContext } from '../context/WallProvider';
 
 export default function Wall() {
+  const { user } = useContext(AuthContext);
   const { handleFetchPosts, posts, loading } = useContext(WallContext);
 
   useEffect(() => {
@@ -17,7 +19,8 @@ export default function Wall() {
   return (
     <main className="bg-stone-200 min-h-screen flex flex-col items-center justify-start">
       <Header />
-      <PostForm />
+      { !user && <h2 className="text-2xl text-center my-10">Please sign in to post</h2> }
+      { user && <PostForm /> }
       <section className="min-h-fit h-full">
         { loading ? <Loading type="spinningBubbles" /> : posts.map((post) => (
           <PostCard key={post.id} post={post} />

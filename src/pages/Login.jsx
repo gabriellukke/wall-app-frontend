@@ -70,7 +70,7 @@ export default function Login() {
         <button
           type="submit"
           data-testid="login-submit"
-          className="bg-green-500 hover:bg-green-400 p-3 w-full my-4 rounded-lg shadow"
+          className="bg-ballblue hover:bg-eletricblue p-3 w-full my-4 rounded-lg shadow"
         >
           Sign In
         </button>
