@@ -1,5 +1,13 @@
 src/index.js
 src/reportWebVitals.js
 src/setupTests.js
+build
 cypress/*
 cypress.config.js
+postcss.config.js
+public
+node_modules
+logs
+run
+coverage
+
