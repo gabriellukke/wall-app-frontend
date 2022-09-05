@@ -22,7 +22,7 @@ export default function Wall() {
       { !user && <h2 className="text-2xl text-center my-10">Please sign in to post</h2> }
       { user && <PostForm /> }
       <section className="flex flex-col justify-center items-center w-5/6 min-w-fit min-h-fit h-full">
-        { loading ? <Loading type="spinningBubbles" /> : posts.map((post) => (
+        { loading ? <Loading type="spinningBubbles" color="white" /> : posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
       </section>
