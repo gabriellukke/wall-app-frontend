@@ -11,6 +11,8 @@ export default function PostForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleCreatePost(title, message, user.userId, token);
+    setTitle('');
+    setMessage('');
   };
 
   return (
