@@ -80,12 +80,16 @@ export default function Login() {
           <p>
             New to Wall App?
             {' '}
-            <Link to="/register" className="text-blue-600 underline">Create an Account</Link>
+            <Link to="/register" data-testid="register-link" className="text-blue-600 underline">
+              Create an Account
+            </Link>
           </p>
           <p>
             or
             {' '}
-            <Link to="/wall" className="text-blue-600 underline">enter as a guest</Link>
+            <Link to="/wall" data-testid="wall-link" className="text-blue-600 underline">
+              enter as a guest
+            </Link>
           </p>
         </div>
       </form>
