@@ -7,8 +7,16 @@ export const LOGIN_EMAIL_TEST_ID = '[data-testid="login-email"]';
 export const LOGIN_PASSWORD_TEST_ID = '[data-testid="login-password"]';
 export const LOGIN_SUBMIT_TEST_ID = '[data-testid="login-submit"]';
 
+export const POST_TITLE_TEST_ID = '[data-testid="post-title"]';
+export const POST_MESSAGE_TEST_ID = '[data-testid="post-message"]';
+export const POST_SUBMIT_TEST_ID = '[data-testid="post-submit"]';
+
 export const REGISTER_LINK_TEST_ID = '[data-testid="register-link"]';
 export const WALL_LINK_TEST_ID = '[data-testid="wall-link"]';
+
+export const LOGOUT_TEST_ID = '[data-testid="logout"]';
+export const SIGN_IN_TEST_ID = '[data-testid="sign-in"]';
+export const SIGN_UP_TEST_ID = '[data-testid="sign-up"]';
 
 export const LOGIN_ENDPOINT = '/user/login';
 export const POST_ENDPOINT = '/post';

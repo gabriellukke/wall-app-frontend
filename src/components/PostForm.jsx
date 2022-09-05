@@ -27,6 +27,7 @@ export default function PostForm() {
             name="title"
             id="title"
             placeholder="Title"
+            data-testid="post-title"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             value={title}
             onChange={({ target }) => setTitle(target.value)}
@@ -39,6 +40,7 @@ export default function PostForm() {
             cols="50"
             rows="3"
             placeholder="Post"
+            data-testid="post-message"
             className="no-resize appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
             value={message}
             onChange={({ target }) => setMessage(target.value)}
@@ -47,6 +49,7 @@ export default function PostForm() {
         <div className="flex justify-end pr-2 pb-2">
           <button
             type="submit"
+            data-testid="post-submit"
             className="bg-green-500 hover:bg-green-400 disabled:bg-red-400 text-white p-1 w-1/4 rounded-lg shadow"
             disabled={!title || !message}
           >

@@ -13,6 +13,7 @@ export default function Header() {
             <div className="flex items-center">
               <button
                 type="button"
+                data-testid="logout"
                 className="hover:bg-red-400 bg-transparen font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
                 onClick={handleLogout}
               >
@@ -23,12 +24,14 @@ export default function Header() {
             <div className="flex items-center">
               <Link
                 to="/"
+                data-testid="sign-in"
                 className="hover:bg-eletricblue bg-transparen font-semibold hover:text-white py-2 px-4 mx-1 border border-eletricblue hover:border-transparent rounded"
               >
                 Sign in
               </Link>
               <Link
                 to="/register"
+                data-testid="sign-up"
                 className="hover:bg-green-600 bg-transparen font-semibold hover:text-white py-2 px-4 mx-1 border border-green-600 hover:border-transparent rounded"
               >
                 Sign up
