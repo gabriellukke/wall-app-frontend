@@ -2,9 +2,10 @@
 
 import {
   LOGIN_EMAIL_TEST_ID,
+  LOGIN_ENDPOINT,
   LOGIN_PASSWORD_TEST_ID,
   LOGIN_SUBMIT_TEST_ID,
-  LOGIN_URL, REGISTER_LINK_TEST_ID,
+  LOGIN_URL, POST_ENDPOINT, REGISTER_LINK_TEST_ID,
   WALL_LINK_TEST_ID
 } from '../utils/constants';
 
@@ -39,29 +40,36 @@ describe('Login page', () => {
   });
   
   it('Should not be able to login with a non-existent user', () => {
+    cy.intercept('POST', LOGIN_ENDPOINT, { statusCode: 401, fixture: 'invalidLogin.json' }).as('login');
     cy.visit(LOGIN_URL);
 
     cy.get(LOGIN_EMAIL_TEST_ID).type('xablau@test.com');
     cy.get(LOGIN_PASSWORD_TEST_ID).type('xablau1234');
     cy.get(LOGIN_SUBMIT_TEST_ID).click();
+    cy.wait('@login');
     cy.contains('Unauthorized, incorrect or unregistered email');
   });
 
   it('Should not be able to login with wrong user password', () => {
+    cy.intercept('POST', LOGIN_ENDPOINT, { statusCode: 401, fixture: 'invalidPass.json' }).as('login');
     cy.visit(LOGIN_URL);
 
     cy.get(LOGIN_EMAIL_TEST_ID).type('gabs@test.com');
     cy.get(LOGIN_PASSWORD_TEST_ID).type('xablau1234');
     cy.get(LOGIN_SUBMIT_TEST_ID).click();
+    cy.wait('@login');
     cy.contains('Unauthorized, incorrect password');
   });
 
   it('Should be able to login', () => {
+    cy.intercept('POST', LOGIN_ENDPOINT, { statusCode: 200, fixture: 'login.json' }).as('login');
+    cy.intercept('GET', POST_ENDPOINT, { statusCode: 200, fixture: 'posts.json' }).as('posts');
     cy.visit(LOGIN_URL);
 
     cy.get(LOGIN_EMAIL_TEST_ID).type('gabs@test.com');
     cy.get(LOGIN_PASSWORD_TEST_ID).type('12345678');
     cy.get(LOGIN_SUBMIT_TEST_ID).click();
+    cy.wait(['@login', '@posts']);
     cy.location('pathname').should('eq', '/wall');
   });
 
@@ -73,9 +81,11 @@ describe('Login page', () => {
   });
 
   it('should be able to access the wall page as a guest', () => {
+    cy.intercept('GET', POST_ENDPOINT, { statusCode: 200, fixture: 'posts.json' }).as('posts');
     cy.visit(LOGIN_URL);
 
     cy.get(WALL_LINK_TEST_ID).click();
+    cy.wait('@posts');
     cy.location('pathname').should('eq', '/wall');
   });
 });

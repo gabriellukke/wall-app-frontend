@@ -9,3 +9,6 @@ export const LOGIN_SUBMIT_TEST_ID = '[data-testid="login-submit"]';
 
 export const REGISTER_LINK_TEST_ID = '[data-testid="register-link"]';
 export const WALL_LINK_TEST_ID = '[data-testid="wall-link"]';
+
+export const LOGIN_ENDPOINT = '/user/login';
+export const POST_ENDPOINT = '/post';

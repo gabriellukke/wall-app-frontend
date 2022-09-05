@@ -1,0 +1,70 @@
+[
+	{
+		"id": "333512e3-6a7b-4b1d-b61d-5fad595f780a",
+		"title": "My newest post",
+		"content": "My post lorem ipsum",
+		"authorId": "869e7e69-75fc-4880-9782-430266759079",
+		"createdAt": "2022-09-05T12:25:53.000Z",
+		"updatedAt": "2022-09-05T12:25:53.000Z",
+		"user": {
+			"id": "869e7e69-75fc-4880-9782-430266759079",
+			"firstName": "Gabriel",
+			"lastName": "Almeida",
+			"email": "gabs@test.com",
+			"password": "$2a$10$hSzzai6uJfS158kkixol4Ou3jnLFfnftPFQNynTm9IlGI5FZ1bASW",
+			"createdAt": "2022-09-04T15:11:03.000Z",
+			"updatedAt": "2022-09-04T15:11:03.000Z"
+		}
+	},
+	{
+		"id": "a076b676-049a-4bfd-9963-215dca46e3b4",
+		"title": "My test post",
+		"content": "My lorem ipsum post",
+		"authorId": "869e7e69-75fc-4880-9782-430266759079",
+		"createdAt": "2022-09-04T22:56:37.000Z",
+		"updatedAt": "2022-09-04T22:56:37.000Z",
+		"user": {
+			"id": "869e7e69-75fc-4880-9782-430266759079",
+			"firstName": "Gabriel",
+			"lastName": "Almeida",
+			"email": "gabs@test.com",
+			"password": "$2a$10$hSzzai6uJfS158kkixol4Ou3jnLFfnftPFQNynTm9IlGI5FZ1bASW",
+			"createdAt": "2022-09-04T15:11:03.000Z",
+			"updatedAt": "2022-09-04T15:11:03.000Z"
+		}
+	},
+	{
+		"id": "3c00fcf2-94b7-46a9-ad3d-7cbf608d091a",
+		"title": "My first post",
+		"content": "This is my first post",
+		"authorId": "869e7e69-75fc-4880-9782-430266759079",
+		"createdAt": "2022-09-04T15:11:03.000Z",
+		"updatedAt": "2022-09-04T15:11:03.000Z",
+		"user": {
+			"id": "869e7e69-75fc-4880-9782-430266759079",
+			"firstName": "Gabriel",
+			"lastName": "Almeida",
+			"email": "gabs@test.com",
+			"password": "$2a$10$hSzzai6uJfS158kkixol4Ou3jnLFfnftPFQNynTm9IlGI5FZ1bASW",
+			"createdAt": "2022-09-04T15:11:03.000Z",
+			"updatedAt": "2022-09-04T15:11:03.000Z"
+		}
+	},
+	{
+		"id": "a01e995f-752e-4b35-a25b-ce120f4bb8c6",
+		"title": "My second post",
+		"content": "This is my second post",
+		"authorId": "d8ff21c9-f508-4cd0-85a1-af1e593b0ddf",
+		"createdAt": "2022-09-04T15:11:03.000Z",
+		"updatedAt": "2022-09-04T15:11:03.000Z",
+		"user": {
+			"id": "d8ff21c9-f508-4cd0-85a1-af1e593b0ddf",
+			"firstName": "Kéren",
+			"lastName": "Hapuch",
+			"email": "keren@test.com",
+			"password": "$2a$10$g5X/TtYzwl/lRBJYFCs8SOSmaEGTnFzoRMnzbhemo2D025Iq7T2vu",
+			"createdAt": "2022-09-04T15:11:03.000Z",
+			"updatedAt": "2022-09-04T15:11:03.000Z"
+		}
+	}
+]
