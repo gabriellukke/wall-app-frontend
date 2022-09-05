@@ -1,5 +1,5 @@
 import React, {
-  createContext, useCallback, useEffect, useMemo, useState,
+  createContext, useCallback, useMemo, useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import { getWallPosts, createPost } from '../services/api';
