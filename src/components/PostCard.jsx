@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function PostCard({ post }) {
   const postedAt = moment(post.createdAt).format('MMMM Do YYYY, h:mm');
   return (
-    <article className="flex bg-white shadow-lg rounded-lg mx-4 px-12 my-2">
+    <article className="flex bg-white shadow-lg rounded-lg w-2/5 mx-4 px-12 my-2">
       <div className="flex items-start px-4 py-6">
         <div>
           <div className="flex items-center justify-between">

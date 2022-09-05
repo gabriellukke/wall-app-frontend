@@ -17,11 +17,11 @@ export default function Wall() {
   }, [handleFetchPosts]);
 
   return (
-    <main className="bg-stone-200 min-h-screen flex flex-col items-center justify-start">
+    <main className="bg-ballblue min-h-screen flex flex-col items-center justify-start">
       <Header />
       { !user && <h2 className="text-2xl text-center my-10">Please sign in to post</h2> }
       { user && <PostForm /> }
-      <section className="min-h-fit h-full">
+      <section className="flex flex-col justify-center items-center w-5/6 min-w-fit min-h-fit h-full">
         { loading ? <Loading type="spinningBubbles" /> : posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
