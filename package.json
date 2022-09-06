@@ -19,7 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "cypress:open": "cypress open",
+    "cypress": "cypress --e2e",
+    "cypress:open": "cypress open --e2e",
     "lint": "eslint . --ext .js --ext .jsx",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
