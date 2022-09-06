@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# The Wall App - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Backend Repo
+- [Wall Backend](https://github.com/gabriellukke/wall-app-backend)
 
-## Available Scripts
+### Deploys
+- [Frontend - Surge](https://wall-app-tsl.surge.sh/)
+- [Backend - Heroku](https://rest-wall-api.herokuapp.com/post)
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+In this project, users can create a new account, sign in or enter as a visitor. Users can create a post on a wall if they are logged, or just read the posts, if they aren't.
+This project was built using [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/) and [Cypress](https://docs.cypress.io/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run this application, open the terminal in any directory of your choice and run the commands below:
 
-### `npm test`
+1. Clone the project
+```bash
+git clone git@github.com:gabriellukke/wall-app-frontend.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Enter in project directory
+```bash
+cd wall-app-frontend
+```
 
-### `npm run build`
+3. Install project dependencies
+```bash
+npm install
+```
+or
+```bash
+yarn install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Environment Variables
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Create a .env file in project root and configure the environment variables.
+-  if you want to use the production backend:
+```bash
+REACT_APP_BASE_URL=https://rest-wall-api.herokuapp.com
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- if you want to run the local backend:
+```
+REACT_APP_BASE_URL=http://localhost:3001 
+```
 
-### `npm run eject`
+## Tests
+This project uses cypress for testing. Cypress is an end-to-end testing tool.
+- To run the project tests, make sure your application is running at `http://localhost:3000`. If you want to change the application test url, change the key `baseUrl` in `cypress.config.js` to your application url.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Tests are isolated from backend in this project, so you can run without backend connection.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Running tests on terminal:
+```bash
+npm run cypress
+```
+or
+```bash
+yarn run cypress
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Running tests using Cypress UI:
+```bash
+npm run cypress:open
+```
+or
+```bash
+yarn run cypress:open
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contacts
+* [Gabriel Almeida](mailto:gabriel.dev.almeida@outlook.com)
+* [LinkedIn](https://www.linkedin.com/in/gabriel-dev-almeida/)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Thank you TSL
+- I really liked to code this app.
